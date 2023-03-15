@@ -1,0 +1,30 @@
+html{
+  background-color: rgb(64, 63, 64);
+  color: #ccc9c9;
+
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+table{
+  margin-top: 5rem;
+}
+
+table, th, td {
+  border: 1px solid  rgb(191, 189, 189);
+  border-collapse: collapse; 
+} 
+
+th {
+  text-align: left;
+  text-transform: uppercase;
+}
+
+th, td {
+  padding: 1rem;
+}
