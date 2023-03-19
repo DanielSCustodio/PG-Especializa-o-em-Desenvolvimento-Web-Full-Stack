@@ -1,0 +1,46 @@
+html {
+  background-color: rgb(17, 16, 18);
+}
+
+div {
+  width: 400px;
+  height: 220px;
+  background: linear-gradient(#eef, #fff 80%);
+  border: 6px solid rgb(194, 191, 191);
+  position: absolute;
+  top: 300px;
+  left: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 30px #77777774;
+  transform: rotate(-5deg);
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* Define a cor de fundo para as células das linhas pares */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Define a cor de fundo para as células das linhas ímpares */
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Define a borda para todas as células */
+th,td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Define a cor do texto para o cabeçalho da tabela */
+th {
+  background-color: #4caf50;
+  color: white;
+}

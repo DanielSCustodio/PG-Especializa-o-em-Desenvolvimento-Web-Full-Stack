@@ -1,0 +1,35 @@
+html {
+  background: rgb(84,7,112);
+  background: linear-gradient(203deg, rgba(84,7,112,0.11250437675070024) 0%, rgba(235,240,241,1) 100%);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.box {
+  position: relative;
+  background-color: rgb(102, 58, 87);
+  max-width: 550px;
+  height: 70px;
+  top: 0;
+  left: 0;
+  padding: 1px;
+}
+
+.box h1 {
+  font-size: 26px;
+  text-align: center;
+  color: white;
+}
+
+.box h2 {
+  font-size: 18px;
+  text-align: left;
+  color: rgb(215, 144, 11);
+}
+
+.box p {
+  font-size: 14px;
+  text-align: justify;
+  color: black;
+  text-indent: 50px;
+}
+
