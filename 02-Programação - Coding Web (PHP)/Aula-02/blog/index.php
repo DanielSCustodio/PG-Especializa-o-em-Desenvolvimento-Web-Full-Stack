@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <?php
   define('author', 'Daniel Custódio');
+  $NPosts = 0;
+  $InfoAuthor = array(
+    "avatar" => "./photo.jpeg",
+    "name" => author,
+    "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique fuga ut eius consectetur eum. Aperiam
+            nobis doloremque ut incidunt at ducimus, doloribus atque veritatis recusandae corrupti, totam voluptate,
+            quibusdam dignissimos."
+  );
+
+  //Postagem 01
+  $PostTitle  = "Games";
+  $PostSubTitle = "O mundo virtual está cada vez mais real.";
+  $PostDate = "Julho, 18, 2023";
+  $PostText = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati
+            quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos. Facere,
+            aliquid.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati
+            quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos. Facere,
+            aliquid.";
 ?>
 <html lang="pt-BR">
 <head>
@@ -10,7 +29,6 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <title>Meu Blog Pessol</title>
 </head>
-
 <body class="w3-light-grey">
 
   <header class="w3-container w3-center w3-padding-32">
@@ -23,17 +41,14 @@
       <div class="w3-card-4 w3-margin w3-white">
         <img src="./post.png" alt="Postagem" style="width: 100%;">
         <div class="w3-container">
-          <h3><b>Games</b></h3>
+            <h3><b><?php echo $NPosts+=1 ?> - <?php echo $PostTitle ?></b></h3>
           <h5>
-            O mundo virtual está cada vez mais real.
-            <span class="w3-opacity">Julho, 18, 2023</span>
+            <?php echo $PostSubTitle ?>
+            <span class="w3-opacity"><?php echo $PostDate ?></span>
           </h5>
         </div>
         <div class="w3-container">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati
-            quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos. Facere,
-            aliquid.</p>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos. Facere, aliquid.</p>
+          <p><?php echo $PostText ?></p>
           <div class="w3-row">
             <div class="w3-col" style="width: 80%;">
               <p><button class="w3-button w3-padding-large w3-white w3-border">Leia Mais...</button></p>
@@ -47,9 +62,9 @@
       <div class="w3-card-4 w3-margin w3-white">
         <img src="./post2.png" alt="Postagem" style="width: 100%;">
         <div class="w3-container">
-          <h3><b>Games</b></h3>
+          <h3><b><?php echo $NPosts+=1 ?> - Família</b></h3>
           <h5>
-            O mundo virtual está cada vez mais real.
+            Tire Férias.
             <span class="w3-opacity">Julho, 18, 2023</span>
           </h5>
         </div>
@@ -74,12 +89,10 @@
     </div>
     <div class="w3-col w3-container" style="width: 35%;">
       <div class="w3-card w3-margin">
-        <img src="./photo.jpeg" style="width: 30%;" alt="Photo">
+        <img src=<?php echo $InfoAuthor["avatar"] ?> style="width: 30%;" alt="Photo">
         <div class="w3-container w3-white">
-          <h4>Daniel Custódio</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique fuga ut eius consectetur eum. Aperiam
-            nobis doloremque ut incidunt at ducimus, doloribus atque veritatis recusandae corrupti, totam voluptate,
-            quibusdam dignissimos.</p>
+          <h4><?php echo $InfoAuthor["name"] ?>  </h4>
+          <p><?php echo $InfoAuthor["description"] ?></p>
         </div>
       </div>
       <hr>
