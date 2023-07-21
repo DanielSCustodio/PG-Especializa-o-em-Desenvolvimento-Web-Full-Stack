@@ -39,8 +39,69 @@
         "date of birth" => "08/12/2020"
       ),
     );
+    echo "<br>";
+      $n = 7;
+      for($cont = 0; $cont < $n; $cont++){
+        echo ("--> $cont");
+        echo "</br>";
+      };
+    echo "</br>";
+    
+    while ($n > 0) {
+      echo "===> $n";
+      echo "<br>";
+      $n--;
+    }
+    echo "<br>";
 
 
+    $x =10;
+    do {
+      $result = $x^2;
+      echo "> $result";  
+      echo "<br>";
+
+      $x--;
+    } while($x > 0);
+    echo "<br>";
+
+    $nota = 05;
+    if($nota < 4){
+      echo "Aluno reprovado!";
+    }
+    else if($nota >= 7){
+      echo "Aluno aprovado";
+    }
+    else{
+      echo "Auno em recuperação";
+    }
+    echo "</br>";
+    $mes = 6;
+    switch ($mes){
+      case 1:
+        echo "Janeiro";
+        break;
+      case 2:
+        echo "Fevereiro";
+        break;
+      case 3:
+        echo "Março";
+        break;
+      case 4:
+        echo "Abril";
+        break;
+      case 5:
+        echo "Maio";
+        break;
+      case 6:
+        echo "Junho";
+        break;
+      
+      default:
+        echo "Mês inválido";
+    }
+
+    echo "</br>";  
     echo "Postagem $NPost </br>";
     $NPost +=1;
     echo "Postagem $NPost </br>";
@@ -60,8 +121,6 @@
     echo "</br>";
     echo "$saudacao";
     echo "</br>";
-
-
   ?>
 </body>
 </html>
