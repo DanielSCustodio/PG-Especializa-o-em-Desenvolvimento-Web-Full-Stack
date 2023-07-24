@@ -1,27 +1,86 @@
 <!DOCTYPE html>
 <?php
-  define('author', 'Daniel Custódio');
-  $NPosts = 0;
-  $InfoAuthor = array(
-    "avatar" => "./photo.jpeg",
-    "name" => author,
-    "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique fuga ut eius consectetur eum. Aperiam
+define('author', 'Daniel Custódio');
+$NPosts = 0;
+$InfoAuthor = array(
+  "avatar" => "./photo.jpeg",
+  "name" => author,
+  "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique fuga ut eius consectetur eum. Aperiam
             nobis doloremque ut incidunt at ducimus, doloribus atque veritatis recusandae corrupti, totam voluptate,
             quibusdam dignissimos."
-  );
+);
+//topics
 
-  //Postagem 01
-  $PostTitle  = "Games";
-  $PostSubTitle = "O mundo virtual está cada vez mais real.";
-  $PostDate = "Julho, 18, 2023";
-  $PostText = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati
-            quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos. Facere,
-            aliquid.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati
-            quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos. Facere,
-            aliquid.";
+$topics = array(
+  1 => "Viagens",
+  2 => "Esportes",
+  3 => "Política",
+  4 => "Família",
+  5 => "Games",
+);
+
+
+//Top 5
+$top_five = array(
+  1 => array(
+    "img" => "post.png",
+    "title" => "Dez motivos para aprender HTML + W3.css",
+    "comments" => 142.
+  ),
+  2 => array(
+    "img" => "post.png",
+    "title" => "Experiência em gravidade zero",
+    "comments" => 10.
+  ),
+  3 => array(
+    "img" => "post2.png",
+    "title" => "Como morar sozinho",
+    "comments" => 7.
+  ),
+  4 => array(
+    "img" => "post.png",
+    "title" => "Melhores música anos 90",
+    "comments" => 3.
+  ),
+  5 => array(
+    "img" => "post2.png",
+    "title" => "O que fazer em um sábado chuvoso",
+    "comments" => 2.
+  ),
+);
+//Posts
+
+$postsHome = array(
+  1 => array(
+    "img" => "post.png",
+    "PostTitle"  => "Games",
+    "PostSubTitle" => "O mundo virtual está cada vez mais real.",
+    "PostDate" => "Julho, 18, 2023",
+    "PostText" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati
+                quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos. Facere,
+                aliquid.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati
+                quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos. Facere,
+                aliquid.",
+    "comments" => "0",
+  ),
+  2 => array(
+    "img" => "post2.png",
+    "PostTitle"  => "Família",
+    "PostSubTitle" => "Tire Férias.",
+    "PostDate" => "Julho, 22, 2023",
+    "PostText" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati
+                quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos. Facere,
+                aliquid.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati
+                quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos. Facere,
+                aliquid.",
+    "comments" => "1",
+  )
+);
 ?>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +88,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <title>Meu Blog Pessol</title>
 </head>
+
 <body class="w3-light-grey">
 
   <header class="w3-container w3-center w3-padding-32">
@@ -38,60 +98,40 @@
   </header>
   <div class="w3-row">
     <div class="w3-col w3-container" style="width: 65%;">
-      <div class="w3-card-4 w3-margin w3-white">
-        <img src="./post.png" alt="Postagem" style="width: 100%;">
-        <div class="w3-container">
-            <h3><b><?php echo $NPosts+=1 ?> - <?php echo $PostTitle ?></b></h3>
-          <h5>
-            <?php echo $PostSubTitle ?>
-            <span class="w3-opacity"><?php echo $PostDate ?></span>
-          </h5>
-        </div>
-        <div class="w3-container">
-          <p><?php echo $PostText ?></p>
-          <div class="w3-row">
-            <div class="w3-col" style="width: 80%;">
-              <p><button class="w3-button w3-padding-large w3-white w3-border">Leia Mais...</button></p>
-            </div>
-            <div class="w3-col w3-hide-small" style="width: 20%;">
-              <p><span class="w3-padding-large w3-right"><b>Comentários</b> <span class="w3-tag">0</span></span></p>
+      <?php
+      while ($count < count($postsHome)) {
+        $count++;
+      ?>
+        <div class="w3-card-4 w3-margin w3-white">
+          <img src="<?php echo $postsHome[$count]["img"]; ?>" alt="Postagem" style="width: 100%;">
+          <div class="w3-container">
+            <h3><b><?php echo $NPosts += 1 ?> - <?php echo $postsHome[$count]["PostTitle"] ?></b></h3>
+            <h5>
+              <?php echo $postsHome[$count]["PostSubTitle"] ?>
+              <span class="w3-opacity"> <?php echo $postsHome[$count]["PostDate"] ?></span>
+            </h5>
+          </div>
+          <div class="w3-container">
+            <p> <?php echo $postsHome[$count]["PostText"] ?></p>
+            <div class="w3-row">
+              <div class="w3-col" style="width: 80%;">
+                <p><button class="w3-button w3-padding-large w3-white w3-border">Leia Mais...</button></p>
+              </div>
+              <div class="w3-col w3-hide-small" style="width: 20%;">
+                <p><span class="w3-padding-large w3-right"><b>Comentários</b> <span class="w3-tag"><?php echo $postsHome[$count]["comments"] ?></span></span></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="w3-card-4 w3-margin w3-white">
-        <img src="./post2.png" alt="Postagem" style="width: 100%;">
-        <div class="w3-container">
-          <h3><b><?php echo $NPosts+=1 ?> - Família</b></h3>
-          <h5>
-            Tire Férias.
-            <span class="w3-opacity">Julho, 18, 2023</span>
-          </h5>
-        </div>
-        <div class="w3-container">
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati
-            quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos.
-            Facere,
-            aliquid.</p>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit earum, quae necessitatibus, consequatur obcaecati
-            quos temporibus eveniet qui fuga sapiente deserunt minus debitis adipisci facilis rem officiis dignissimos.
-            Facere, aliquid.</p>
-          <div class="w3-row">
-            <div class="w3-col" style="width: 80%;">
-              <p><button class="w3-button w3-padding-large w3-white w3-border">Leia Mais...</button></p>
-            </div>
-            <div class="w3-col w3-hide-small" style="width: 20%;">
-              <p><span class="w3-padding-large w3-right"><b>Comentários</b> <span class="w3-tag">0</span></span></p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php
+      }
+      ?>
     </div>
     <div class="w3-col w3-container" style="width: 35%;">
       <div class="w3-card w3-margin">
         <img src=<?php echo $InfoAuthor["avatar"] ?> style="width: 30%;" alt="Photo">
         <div class="w3-container w3-white">
-          <h4><?php echo $InfoAuthor["name"] ?>  </h4>
+          <h4><?php echo $InfoAuthor["name"] ?> </h4>
           <p><?php echo $InfoAuthor["description"] ?></p>
         </div>
       </div>
@@ -101,40 +141,19 @@
           <h4>Postagens Mais Populares</h4>
         </div>
         <ul class="w3-ul w3-hoverable w3-white">
-          <li class="w3-padding-16">
-            <img src="./post.png" alt="post" class="w3-left w3-margin-right" style="width: 80px;">
-            <span>Dez motivos para aprender HTML + W3.css</span>
-            <br>
-            <span>Comentários: 142</span>
-          </li>
 
-          <li class="w3-padding-16">
-            <img src="./post.png" alt="post" class="w3-left w3-margin-right" style="width: 80px;">
-            <span>Experiência em gravidade zero</span>
-            <br>
-            <span>Comentários: 10</span>
-          </li>
-
-          <li class="w3-padding-16">
-            <img src="./post2.png" alt="post" class="w3-left w3-margin-right" style="width: 80px;">
-            <span>Como morar sozinho</span>
-            <br>
-            <span>Comentários: 7</span>
-          </li>
-
-          <li class="w3-padding-16">
-            <img src="./post.png" alt="post" class="w3-left w3-margin-right" style="width: 80px;">
-            <span>Melhores música anos 90</span>
-            <br>
-            <span>Comentários: 3</span>
-          </li>
-
-          <li class="w3-padding-16">
-            <img src="./post2.png" alt="post" class="w3-left w3-margin-right" style="width: 80px;">
-            <span>O que fazer em um sábado chuvoso</span>
-            <br>
-            <span>Comentários: 2</span>
-          </li>
+          <?php
+          for ($i = 1; $i <= count($top_five); $i++) {
+          ?>
+            <li class="w3-padding-16">
+              <img src="<?php echo $top_five[$i]["img"] ?>" class="w3-left w3-margin-right" style="width: 50px;">
+              <span><?php echo $top_five[$i]["title"] ?></span>
+              <br>
+              <span>Comentários: <?php echo $top_five[$i]["comments"] ?></span>
+            </li>
+          <?php
+          }
+          ?>
         </ul>
       </div>
       <hr>
@@ -145,13 +164,15 @@
         <div class="w3-container w3-white">
           <p>
             <span class="w3-tag w3-black w3-margin-bottom">Todas</span>
-            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Viagens</span>
-            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Esportes</span>
-            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Política</span>
-            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Família</span>
-            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
-
-
+            <?php
+            for ($i = 1; $i <= count($topics); $i++) {
+            ?>
+              <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">
+                <?php echo $topics[$i] ?>
+              </span>
+            <?php
+            }
+            ?>
           </p>
         </div>
       </div>
