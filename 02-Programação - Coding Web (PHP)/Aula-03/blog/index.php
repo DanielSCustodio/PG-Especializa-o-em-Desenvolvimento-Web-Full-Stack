@@ -9,8 +9,6 @@ define('DB', 'blog');
 
 $conn = mysqli_connect(SERVER, USER, PASSWORD, DB);
 
-
-
 if (mysqli_connect_errno()) {
   echo "Falha ao conectar com o banco de dados. Erro:" . mysqli_connect_errno();
 }else{
@@ -18,10 +16,16 @@ if (mysqli_connect_errno()) {
   $sql = "select * FROM presentation";
   if($result= mysqli_query($conn, $sql)){
     while($register= mysqli_fetch_row($result)){
-      echo "<br>Autor: ". $register[1]. "<br> Descrição:" . $register[2] . "<br>Foto: " . $register[3];
+      $InfoAuthor = array(
+        "avatar" => $register[3],
+        "name" => $register[1],
+        "description" => $register[2]
+      );
     }
     mysqli_free_result($result);
   }
+  
+
 }
 
 mysqli_close($conn);
@@ -29,13 +33,8 @@ mysqli_close($conn);
 
 define('author', 'Daniel Custódio');
 $NPosts = 0;
-$InfoAuthor = array(
-  "avatar" => "./photo.jpeg",
-  "name" => author,
-  "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique fuga ut eius consectetur eum. Aperiam
-            nobis doloremque ut incidunt at ducimus, doloribus atque veritatis recusandae corrupti, totam voluptate,
-            quibusdam dignissimos."
-);
+
+
 //topics
 
 $topics = array(
@@ -45,7 +44,6 @@ $topics = array(
   4 => "Família",
   5 => "Games",
 );
-
 
 //Top 5
 $top_five = array(
