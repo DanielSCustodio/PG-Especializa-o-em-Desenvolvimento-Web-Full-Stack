@@ -11,11 +11,11 @@ $conn = mysqli_connect(SERVER, USER, PASSWORD, DB);
 
 if (mysqli_connect_errno()) {
   echo "Falha ao conectar com o banco de dados. Erro:" . mysqli_connect_errno();
-}else{
+} else {
   echo "Status OK <br> Banco de Dados " . DB . " Conectado.";
   $sql = "select * FROM presentation";
-  if($result= mysqli_query($conn, $sql)){
-    while($register= mysqli_fetch_row($result)){
+  if ($result = mysqli_query($conn, $sql)) {
+    while ($register = mysqli_fetch_row($result)) {
       $InfoAuthor = array(
         "avatar" => $register[3],
         "name" => $register[1],
@@ -24,8 +24,6 @@ if (mysqli_connect_errno()) {
     }
     mysqli_free_result($result);
   }
-  
-
 }
 
 mysqli_close($conn);
@@ -34,16 +32,6 @@ mysqli_close($conn);
 define('author', 'Daniel Custódio');
 $NPosts = 0;
 
-
-//topics
-
-$topics = array(
-  1 => "Viagens",
-  2 => "Esportes",
-  3 => "Política",
-  4 => "Família",
-  5 => "Games",
-);
 
 //Top 5
 $top_five = array(
@@ -102,7 +90,21 @@ $postsHome = array(
                 aliquid.",
     "comments" => "1",
   )
-); 
+);
+
+
+//Funções
+
+function ShowCategories($name, $selected){
+  $text = "";
+  if($selected)
+    $text = "<span class='w3-tag w3-black w3-margin-bottom w3-margin-right'>";
+  else
+    $text = "<span class='w3-tag w3-light-grey w3-small w3-margin-bottom w3-margin-right'>";
+
+  $text = $text . $name. "</span>";
+  return $text;
+}
 ?>
 <html lang="pt-BR">
 
@@ -188,15 +190,13 @@ $postsHome = array(
         </div>
         <div class="w3-container w3-white">
           <p>
-            <span class="w3-tag w3-black w3-margin-bottom">Todas</span>
             <?php
-            for ($i = 1; $i <= count($topics); $i++) {
-            ?>
-              <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">
-                <?php echo $topics[$i] ?>
-              </span>
-            <?php
-            }
+              echo ShowCategories("Todas", true);
+              echo ShowCategories("Viagens", false);
+              echo ShowCategories("Esportes", false);
+              echo ShowCategories("Política", false);
+              echo ShowCategories("Família", false);
+              echo ShowCategories("Games", false);
             ?>
           </p>
         </div>
