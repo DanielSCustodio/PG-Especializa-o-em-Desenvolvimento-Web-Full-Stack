@@ -1,6 +1,8 @@
 <?php
 include("user.php");
 include ("Character.php");
+include("BankAccount.php");
+include ("SavingsAccount.php");
 
 class Person
 {
@@ -115,6 +117,18 @@ $anakin->physicalAbility = "40";
 
 $luke->ShowData();
 $anakin->ShowData();
+
+$contaDaniel = new BankAccount('0001','0001-15','100');
+echo $contaDaniel->showInfo();
+echo $contaDaniel->withdraw(100.25);
+echo $contaDaniel->showBalance();
+echo $contaDaniel->deposit(5);
+echo $contaDaniel->showInfo();
+
+$pessoa = New SavingsAccount('001', '0001-17', 300);
+echo $pessoa->showInfo();
+$pessoa->withdraw(350); // Não haverá por causa da validação na classe SavingsAccount
+echo $pessoa->showInfo();
 
 ?>
 <!DOCTYPE html>
