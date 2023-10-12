@@ -119,17 +119,22 @@ $anakin->physicalAbility = "40";
 $luke->ShowData();
 $anakin->ShowData();
 
-$contaDaniel = new BankAccount('0001', '0001-15', '100');
-echo $contaDaniel->showInfo();
-echo $contaDaniel->withdraw(100.25);
-echo $contaDaniel->showBalance();
-echo $contaDaniel->deposit(5);
-echo $contaDaniel->showInfo();
 
 $pessoa = new SavingsAccount('001', '0001-17', 300);
 echo $pessoa->showInfo();
-$pessoa->withdraw(350); // Não haverá por causa da validação na classe SavingsAccount
+echo $pessoa->withdraw(350); // Não haverá por causa da validação na classe SavingsAccount
 echo $pessoa->showInfo();
+echo $pessoa->deposit(50);
+echo $pessoa->showInfo();
+
+echo "==================================== <br>";
+
+$user = new SavingsAccount('001', '0001-19', 500);
+echo $user->showInfo();
+echo $user->withdraw(400); 
+echo $user->showInfo();
+echo $user->deposit(50);
+echo $user->showInfo();
 
 $tv = new TV();
 $tv->On();
