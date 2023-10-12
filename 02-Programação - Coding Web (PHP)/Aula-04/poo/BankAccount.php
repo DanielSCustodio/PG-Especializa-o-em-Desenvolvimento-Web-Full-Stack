@@ -1,5 +1,5 @@
 <?php
-class BankAccount
+abstract class BankAccount
 {
   protected $agency; //agencia
   protected $account; //conta
@@ -27,13 +27,10 @@ class BankAccount
   }
 
   //Depósito
-  public function deposit($amount)
-  {
-    if ($amount > 0) {
-      $this->balance += $amount;
-      return "Foi feito um depósito de R$" . $amount . " <br>";
-    }
-  }
+  abstract function deposit($amount);
+
+  //Sacar dinheiro
+  abstract function withdraw($amount);
 
   //Mostrar Saldo
   public function showBalance()
@@ -41,14 +38,5 @@ class BankAccount
     return "Saldo: " . $this->balance . "<br>";
   }
 
-  //Sacar dinheiro
-  public function withdraw($amount)
-  {
-    if ($amount > 0) {
-      $this->balance -= $amount;
-      return "Foi feito um saque de R$" . $amount . " <br>";
-    }
-
-  }
 
 }
