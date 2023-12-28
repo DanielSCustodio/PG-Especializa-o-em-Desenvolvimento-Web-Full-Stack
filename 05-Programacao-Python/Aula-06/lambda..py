@@ -62,5 +62,5 @@ filtered_users = filter(lambda user: user["age"] > 25, users)
 print(list(filtered_users))
 
 items = [1,2,3,4,5]
-double = list(map(lambda x: x*2, items))
+double = list(map(lambda x: x * 2, items))
 print(double)
